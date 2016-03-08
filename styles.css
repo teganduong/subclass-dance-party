@@ -55,10 +55,10 @@ body, a:link, a:visited, a:active{
   animation: x 1500ms linear infinite both;
   width: 115px;
   height: 115px;
-  border: none;
+  border: 2px solid #fff;
+  border-radius: 5px;
   background-image: url('img/corgi-swim-1-1.gif');
   background-size: 115px 115px;
-  border-radius: 0;
 }
 
 
