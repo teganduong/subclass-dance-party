@@ -83,6 +83,14 @@ $(document).ready(function() {
     }
   });
 
+  var audioElement = document.createElement('audio');
+  audioElement.setAttribute('src', 'audio/dogBark-1-1.mp3');
+  audioElement.setAttribute('autoplay', 'autoplay');
+
+  $('.bouncy-dancer').on('click', function(event) {
+    audioElement.play();
+  });
+
 // var player1Active = false;
 
 // $('.joinThePartyButton').on('click', function(event) {
