@@ -33,6 +33,10 @@ body, a:link, a:visited, a:active{
   padding:5px 12px;
   float:right;
 }
+.scatterDancersButton {
+  padding:5px 12px;
+  float:right;
+}
 .topbar{
   height:40px;
   background-color: rgba(255, 255, 255, .5);
@@ -148,11 +152,11 @@ body, a:link, a:visited, a:active{
 .squishy-dancer {
   -webkit-animation: animation 2000ms linear infinite both;
   animation: animation 2000ms linear infinite both;
-  width: 115px;
-  height: 115px;
-  border: none;
+  width: 50px;
+  height: 50px;
+  border: 2px solid #fff;
   background-image: url('img/magikarp-1-1.gif');
-  background-size: 115px 115px;
+  background-size: 50px 50px;
   border-radius: 5px;
 }
 
