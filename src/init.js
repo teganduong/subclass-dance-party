@@ -53,17 +53,35 @@ $(document).ready(function() {
     $('body').append(dancer.$node);
   });
 
-$('.addSquishyDancerButton').on('click', function(event) {
-  var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
-  var dancerMakerFunction = window[dancerMakerFunctionName];
-  var dancer = new dancerMakerFunction(
-    $('body').height() * Math.random(),
-    $('body').width() * Math.random(),
-    Math.random() * 1000
-  );
-  dancers.push(dancer);
-  $('body').append(dancer.$node);
-});
+  $('.addSquishyDancerButton').on('click', function(event) {
+    var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
+    var dancerMakerFunction = window[dancerMakerFunctionName];
+    var dancer = new dancerMakerFunction(
+      $('body').height() * Math.random(),
+      $('body').width() * Math.random(),
+      Math.random() * 1000
+    );
+    dancers.push(dancer);
+    $('body').append(dancer.$node);
+  });
+
+  $('.lineUpDancersButton').on('click', function(event) {
+    // var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
+    // var dancerMakerFunction = window[dancerMakerFunctionName];
+    // var dancer = new dancerMakerFunction(
+    //   $('body').height() * Math.random(),
+    //   $('body').width() * Math.random(),
+    //   Math.random() * 1000
+    // );
+    // dancers.push(dancer);
+    // $('body').append(dancer.$node);
+    var centerVert = $('body').width() / 2;
+    var bodyTop = 30;
+    for (var i = 0; i < window.dancers.length; i++) {
+      Dancer.prototype.lineUp.call(window.dancers[i], bodyTop, centerVert);
+      bodyTop += 50;
+    }
+  });
 
 // var player1Active = false;
 
