@@ -1,6 +1,6 @@
 var makeBouncyDancer = function(top, left, timeBetweenSteps) {
   Dancer.apply(this, arguments);
-  this.$node.addClass('bouncy-dancer');
+  this.$node.addClass('corgi');
 
 };
 

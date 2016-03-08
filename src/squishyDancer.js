@@ -1,6 +1,6 @@
 var makeSquishyDancer = function(top, left, timeBetweenSteps) {
   Dancer.apply(this, arguments);
-  this.$node.addClass('squishy-dancer');
+  this.$node.addClass('magikarp');
 
 };
 

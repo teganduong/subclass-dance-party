@@ -19,7 +19,7 @@ $(document).ready(function() {
     var dancerMakerFunction = window[dancerMakerFunctionName];
     // make a dancer with a random position
     var dancer = new dancerMakerFunction(
-      $('body').height() * Math.random(),
+      $('body').height() * Math.random() + 40,
       $('body').width() * Math.random(),
       Math.random() * 1000
     );
@@ -33,7 +33,7 @@ $(document).ready(function() {
     var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
     var dancerMakerFunction = window[dancerMakerFunctionName];
     var dancer = new dancerMakerFunction(
-      $('body').height() * Math.random(),
+      $('body').height() * Math.random() + 40,
       $('body').width() * Math.random(),
       Math.random() * 1000
     );
@@ -42,7 +42,7 @@ $(document).ready(function() {
     dancers.push(dancer);
     $('body').append(dancer.$node);
 
-    $('.bouncy-dancer').click( function(event) {
+    $('.corgi').click( function(event) {
       audioElement.play();
     });
   });
@@ -51,7 +51,7 @@ $(document).ready(function() {
     var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
     var dancerMakerFunction = window[dancerMakerFunctionName];
     var dancer = new dancerMakerFunction(
-      $('body').height() * Math.random(),
+      $('body').height() * Math.random() + 40,
       $('body').width() * Math.random(),
       Math.random() * 1000
     );
@@ -60,7 +60,7 @@ $(document).ready(function() {
     dancers.push(dancer);
     $('body').append(dancer.$node);
 
-    $('.squishy-dancer').click(function(event) {
+    $('.magikarp').click(function(event) {
       var i = 0;
       var fishTop = $(this).css('top');
       var fishLeft = $(this).css('left');
@@ -85,7 +85,7 @@ $(document).ready(function() {
     var leftAlign, topAlign;
     for (var i = 0; i < window.dancers.length; i++) {
       leftAlign = $('body').width() * Math.random();
-      topAlign = $('body').height() * Math.random();
+      topAlign = $('body').height() * Math.random() + 40;
       Dancer.prototype.move.call(window.dancers[i].$node, topAlign, leftAlign);
     }
   });
@@ -93,31 +93,4 @@ $(document).ready(function() {
   var audioElement = document.createElement('audio');
   audioElement.setAttribute('src', 'audio/dogBark-1-1.mp3');
 
-  $('.eatFishButton').on('click', function(event) {
-
-  });
-
-// var player1Active = false;
-
-// $('.joinThePartyButton').on('click', function(event) {
-//   if (player1Active === false) {
-//     var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
-//     var dancerMakerFunction = window[dancerMakerFunctionName];
-//     var dancer = new dancerMakerFunction(
-//       $('body').height() * Math.random(),
-//       $('body').width() * Math.random(),
-//       Math.random() * 1000
-//     );
-//     dancers.push(dancer);
-//     $('body').append(dancer.$node);
-//     player1Active = true;
-//   }
-// });
-// });
-
-// $('.player-1').keydown(function(event) {
-//   if (player1Active === false) {
-    
-//   }
-// });
 });

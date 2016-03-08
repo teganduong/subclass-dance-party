@@ -5,15 +5,16 @@ body{
   margin: 0px;
   background-image: url('img/water-bg-1-1.gif');
   background-repeat: repeat;
-  font-size: 18px;
+  font-size: 16px;
   font-family: 'Open Sans', Arial, sans-serif;
   font-weight: 300;
   text-decoration: none;
 }
 body, a:link, a:visited, a:active{
   color: #fff;
+  text-decoration: none;
 }
-.title, .addDancerButton{
+.addDancerButton{
   padding:5px 12px;
   float:right;
 }
@@ -39,28 +40,36 @@ body, a:link, a:visited, a:active{
 }
 .topbar{
   height:40px;
-  background-color: rgba(255, 255, 255, .5);
+  background-color: rgb(74, 227, 199);
+  border-bottom: 1px solid rgba(255, 255, 255, .5);
 }
 .title{
-  background-color: rgba(255, 255, 255, .5);
+  background-color: rgba(255, 255, 255, .25);
   height:30px;
+  padding:5px 12px;
+  float: left;
 }
 .dancer{
-  border:10px solid red;
-  border-radius:10px;
+  background-image: url('img/gastly-1-1.gif');
+  height: 50px;
+  width: 50px;
+  background-size: 50px 50px;
   position:absolute;
 }
-
+.nav-icon {
+  height: 30px;
+  width: 30px;
+  padding: 5px 15px;
+  float: left;
+}
 
 /* Generated with Bounce.js. Edit at http://goo.gl/HCfmOK */
 
-.bouncy-dancer {
+.corgi {
   -webkit-animation: x 1500ms linear infinite both;
   animation: x 1500ms linear infinite both;
   width: 115px;
   height: 115px;
-  border: 2px solid #fff;
-  border-radius: 5px;
   background-image: url('img/corgi-swim-1-1.gif');
   background-size: 115px 115px;
 }
@@ -149,15 +158,13 @@ body, a:link, a:visited, a:active{
 
 /* Generated with Bounce.js. Edit at http://goo.gl/08QdXM */
 
-.squishy-dancer {
+.magikarp {
   -webkit-animation: animation 2000ms linear infinite both;
   animation: animation 2000ms linear infinite both;
   width: 50px;
   height: 50px;
-  border: 2px solid #fff;
   background-image: url('img/magikarp-1-1.gif');
   background-size: 50px 50px;
-  border-radius: 5px;
 }
 
 
