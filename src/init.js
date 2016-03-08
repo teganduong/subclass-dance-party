@@ -40,7 +40,6 @@ $(document).ready(function() {
      * A new object of the given type will be created and added
      * to the stage.
      */
-     debugger;
     var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
     // get the maker function for the kind of dancer we're supposed to make
     var dancerMakerFunction = window[dancerMakerFunctionName];
@@ -53,5 +52,40 @@ $(document).ready(function() {
     dancers.push(dancer);
     $('body').append(dancer.$node);
   });
+
+$('.addSquishyDancerButton').on('click', function(event) {
+  var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
+  var dancerMakerFunction = window[dancerMakerFunctionName];
+  var dancer = new dancerMakerFunction(
+    $('body').height() * Math.random(),
+    $('body').width() * Math.random(),
+    Math.random() * 1000
+  );
+  dancers.push(dancer);
+  $('body').append(dancer.$node);
 });
 
+// var player1Active = false;
+
+// $('.joinThePartyButton').on('click', function(event) {
+//   if (player1Active === false) {
+//     var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
+//     var dancerMakerFunction = window[dancerMakerFunctionName];
+//     var dancer = new dancerMakerFunction(
+//       $('body').height() * Math.random(),
+//       $('body').width() * Math.random(),
+//       Math.random() * 1000
+//     );
+//     dancers.push(dancer);
+//     $('body').append(dancer.$node);
+//     player1Active = true;
+//   }
+// });
+// });
+
+// $('.player-1').keydown(function(event) {
+//   if (player1Active === false) {
+    
+//   }
+// });
+});
