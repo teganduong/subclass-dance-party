@@ -11,11 +11,8 @@ makeBlinkyDancer.prototype = Object.create(Dancer.prototype);
 makeBlinkyDancer.prototype.constructor = makeBlinkyDancer;
 
 makeBlinkyDancer.prototype.step = function(timeBetweenSteps) {
-  var oldStep = Dancer.prototype.step; 
-  oldStep(timeBetweenSteps);
-  setInterval(function() {
-    $('.dancer').toggle();
-  }, timeBetweenSteps);
+  Dancer.prototype.step.call(this, timeBetweenSteps);
+  this.$node.toggle();
 };
 
 // makeBlinkyDancer.prototype.step = function() {
