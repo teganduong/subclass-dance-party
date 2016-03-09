@@ -9,5 +9,4 @@ makeSquishyDancer.prototype.constructor = squishyDancer;
 
 makeSquishyDancer.prototype.step = function(timeBetweenSteps) {
   Dancer.prototype.step.call(this, timeBetweenSteps);
-  // this.$node.toggle('bounce', {times: 10}, 'fast');
 };

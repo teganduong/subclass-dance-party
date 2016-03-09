@@ -1,6 +1,23 @@
 $(document).ready(function() {
   window.dancers = [];
   var id = 0;
+
+
+  var $player = $('#player-1');
+  $(document).keydown(function(e) {
+    if (e.keyCode === 39 && $player.position().left < $('body').width() - 180) {
+      $player.css('left', $player.position().left + 15 + 'px');
+    } else if (e.keyCode === 37 && $player.position().left > 0) {
+      $player.css('left', $player.position().left - 15 + 'px');
+    } else if (e.keyCode === 38 && $player.position().top > 50) {
+      $player.css('top', $player.position().top - 15 + 'px');
+    } else if (e.keyCode === 40 && $player.position().top < $('body').height() - 30) {
+      $player.css('top', $player.position().top + 15 + 'px');
+    } 
+  });
+
+  
+
   $('.addDancerButton').on('click', function(event) {
     /* This function sets up the click handlers for the create-dancer
      * buttons on dancefloor.html. You should only need to make one small change to it.
@@ -14,6 +31,7 @@ $(document).ready(function() {
      * A new object of the given type will be created and added
      * to the stage.
      */
+
     var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
     // get the maker function for the kind of dancer we're supposed to make
     var dancerMakerFunction = window[dancerMakerFunctionName];
@@ -89,7 +107,7 @@ $(document).ready(function() {
       Dancer.prototype.move.call(window.dancers[i].$node, topAlign, leftAlign);
     }
   });
-  
+
   var audioElement = document.createElement('audio');
   audioElement.setAttribute('src', 'audio/dogBark-1-1.mp3');
 

@@ -14,28 +14,8 @@ body, a:link, a:visited, a:active{
   color: #fff;
   text-decoration: none;
 }
-.addDancerButton{
-  padding:5px 12px;
-  float:right;
-}
-.addBouncyDancerButton{
-  padding:5px 12px;
-  float:right;
-}
-.addSquishyDancerButton{
-  padding:5px 12px;
-  float:right;
-}
-.joinThePartyButton{
-  padding:5px 12px;
-  float:right;
-}
-.lineUpDancersButton {
-  padding:5px 12px;
-  float:right;
-}
-.scatterDancersButton {
-  padding:5px 12px;
+.nav-element {
+  padding:10px 12px;
   float:right;
 }
 .topbar{
@@ -44,9 +24,7 @@ body, a:link, a:visited, a:active{
   border-bottom: 1px solid rgba(255, 255, 255, .5);
 }
 .title{
-  background-color: rgba(255, 255, 255, .25);
   height:30px;
-  padding:5px 12px;
   float: left;
 }
 .dancer{
@@ -74,6 +52,17 @@ body, a:link, a:visited, a:active{
   background-size: 115px 115px;
 }
 
+.ice-cream {
+  width: 49px;
+  height: 60px;
+  position: absolute;
+}
+
+#player-1 {
+  height: 150px;
+  width: 150px;
+  position: absolute;
+}
 
 @-webkit-keyframes x { 
   0% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -50, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -50, 0, 0, 1); }
