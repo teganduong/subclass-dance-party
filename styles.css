@@ -56,6 +56,8 @@ body, a:link, a:visited, a:active{
   width: 49px;
   height: 60px;
   position: absolute;
+  left: 400px;
+  top: 400px;
 }
 
 #player-1 {

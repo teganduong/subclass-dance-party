@@ -1,5 +1,8 @@
 $(document).ready(function() {
   window.dancers = [];
+  window.corgis = [];
+  window.magikarp = [];
+  window.ghastly = [];
   var id = 0;
 
 
@@ -16,7 +19,7 @@ $(document).ready(function() {
     } 
   });
 
-  
+
 
   $('.addDancerButton').on('click', function(event) {
     /* This function sets up the click handlers for the create-dancer
@@ -42,48 +45,54 @@ $(document).ready(function() {
       Math.random() * 1000
     );
     dancer.$node[0].setAttribute('id', id);
-    id++;
     dancers.push(dancer);
+    ghastly.push(dancer);
     $('body').append(dancer.$node);
   });
 
   $('.addBouncyDancerButton').on('click', function(event) {
     var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
     var dancerMakerFunction = window[dancerMakerFunctionName];
+    var xCoordinate = $('body').width() * Math.random() - 100;
     var dancer = new dancerMakerFunction(
       $('body').height() * Math.random() + 40,
-      $('body').width() * Math.random(),
+      xCoordinate > 0 ? xCoordinate : (('body').width() * Math.random() - 100),
       Math.random() * 1000
     );
     dancer.$node[0].setAttribute('id', id);
-    id++;
     dancers.push(dancer);
+    corgis.push(dancer);
     $('body').append(dancer.$node);
-
     $('.corgi').click( function(event) {
       audioElement.play();
     });
   });
 
+  var i = 0;
   $('.addSquishyDancerButton').on('click', function(event) {
     var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
     var dancerMakerFunction = window[dancerMakerFunctionName];
+    var xCoordinate = $('body').width() * Math.random() - 100;
     var dancer = new dancerMakerFunction(
       $('body').height() * Math.random() + 40,
-      $('body').width() * Math.random(),
+      xCoordinate > 0 ? xCoordinate : (('body').width() * Math.random() - 100),
       Math.random() * 1000
     );
     dancer.$node[0].setAttribute('id', id);
-    id++;
     dancers.push(dancer);
+    magikarp.push(dancer);
     $('body').append(dancer.$node);
 
     $('.magikarp').click(function(event) {
-      var i = 0;
       var fishTop = $(this).css('top');
       var fishLeft = $(this).css('left');
-      Dancer.prototype.move.call(window.dancers[i].$node, fishTop, fishLeft);
+      Dancer.prototype.move.call(window.corgis[i].$node, fishTop, fishLeft);
       var that = this;
+      if (i === window.corgis.length - 1) {
+        i = 0;
+      } else {
+        i++;
+      }
       setTimeout(function() {
         $(that).toggle();
       }, 1000);
@@ -102,11 +111,33 @@ $(document).ready(function() {
   $('.scatterDancersButton').on('click', function(event) {    
     var leftAlign, topAlign;
     for (var i = 0; i < window.dancers.length; i++) {
-      leftAlign = $('body').width() * Math.random();
-      topAlign = $('body').height() * Math.random() + 40;
+      leftAlign = Math.abs($('body').width() * Math.random() - 100);
+      topAlign = Math.abs($('body').height() * Math.random() + 40);
       Dancer.prototype.move.call(window.dancers[i].$node, topAlign, leftAlign);
     }
+
+    setTimeout(function() {
+      distanceCalculator(window.corgis, window.magikarp);
+    }, 1000);
   });
+
+  var distanceCalculator = function(corgiArr, karpArr) {
+    debugger;
+    var leftAlign, topAlign;
+    for (var i = 0; i < corgiArr.length; i++) {
+      var corgiX1 = corgiArr[i].$node.position().left;
+      var corgiY1 = corgiArr[i].$node.position().top;
+      for (var j = 0; j < karpArr.length; j++) {
+        var karpX1 = karpArr[j].$node.position().left;
+        var karpY1 = karpArr[j].$node.position().left;
+        if (Math.sqrt(Math.pow((corgiX1 - karpX1), 2) + Math.pow((corgiY1 - karpY1), 2)) < 200) {
+          leftAlign = Math.abs($('body').width() * Math.random() - 100);
+          topAlign = Math.abs($('body').height() * Math.random() + 40);
+          Dancer.prototype.move.call(karpArr[j].$node, topAlign, leftAlign);
+        }
+      }
+    }
+  };
 
   var audioElement = document.createElement('audio');
   audioElement.setAttribute('src', 'audio/dogBark-1-1.mp3');
